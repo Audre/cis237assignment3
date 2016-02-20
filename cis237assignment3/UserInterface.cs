@@ -68,8 +68,8 @@ namespace cis237assignment3
             string material;
 
             Console.WriteLine("Please enter the type of material (wood, cardboard, or metal).");
-            material = Console.ReadLine();
-            if (material != "wood" || material != "cardboard" || material != "metal")
+            material = Console.ReadLine().ToLower();
+            if (material != "wood" && material != "cardboard" && material != "metal")
             {
                 Console.WriteLine("That is not a valid option.");
                 return GetMaterial();
@@ -82,7 +82,13 @@ namespace cis237assignment3
             string color; 
 
             Console.WriteLine("Please enter the color (red, blue, white, black).");
-            return color = Console.ReadLine();
+            color = Console.ReadLine().ToLower();
+            if (color != "red" && color != "blue" && color != "white" && color != "black")
+            {
+                Console.WriteLine("That is not a valid option.");
+                return GetColor();
+            }
+            return color;
         }
 
         private int GetNumberLanguages()
