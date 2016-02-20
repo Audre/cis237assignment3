@@ -14,7 +14,7 @@ namespace cis237assignment3
         protected decimal baseCost;
         protected decimal totalCost;
 
-        public Droid(string material, string model, string color)
+        public Droid(string model, string material, string color)
         {
             this.material = material;
             this.model = model;
@@ -29,17 +29,19 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return this.material + " " + this.model + " " + this.color + " " + this.baseCost.ToString("C") + " " + this.totalCost.ToString("C");
+            return this.model + this.material + " " + " " + this.color + " " + this.baseCost.ToString("C") + " " + this.totalCost.ToString("C");
         }
 
+        // determine base cost based on material
         protected decimal CalculateBaseCost()
         {
             return baseCost;
         }
-
-        public void CalculateTotalCost()
+        
+        // assigns baseCost to totalCost
+        public virtual void CalculateTotalCost()
         {
-            baseCost = totalCost;
+            this.totalCost = this.baseCost;
         }
     }
 }

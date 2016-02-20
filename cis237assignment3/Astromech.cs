@@ -12,8 +12,8 @@ namespace cis237assignment3
         protected int numberShips;
         protected const int COST_PER_SHIP = 1;
 
-        public Astromech(string material, string model, string color, bool toolbox, bool computerConnection, bool arm, bool fireExtinguisher, int numberShips) :
-            base(material, model, color, toolbox, computerConnection, arm)
+        public Astromech(string model, string material, string color, bool toolbox, bool computerConnection, bool arm, bool fireExtinguisher, int numberShips) :
+            base(model, material, color, toolbox, computerConnection, arm)
         {
             this.fireExtinguisher = fireExtinguisher;
             this.numberShips = numberShips;
@@ -21,11 +21,11 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return this.material + ", " + this.model + ", " + this.color + ", toolbox " + this.toolbox + ", computer connection " +
-                this.computerConnection + ", arm " + this.arm + ", fire extinguisher " + this.fireExtinguisher + ", number of ships " + this.numberShips;
+            return "Model: " + this.model + ", Material: " + this.material + ", Color: " + this.color + ", Toolbox: " + this.toolbox + ", Computer Connection: " +
+                this.computerConnection + ", Arm: " + this.arm + ", Fire Extinguisher: " + this.fireExtinguisher + ", Number of Ships: " + this.numberShips;
         }
 
-        protected void CalculateTotalCost()
+        public override void CalculateTotalCost()
         {
             // Calculate totalCost by calculating the cost of each selected option and the cost based on the number of ships and adds both to the base CalculateTotalCost
         }

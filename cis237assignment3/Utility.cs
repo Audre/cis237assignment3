@@ -12,7 +12,7 @@ namespace cis237assignment3
         protected bool computerConnection;
         protected bool arm;
 
-        public Utility(string material, string model, string color, bool toolbox, bool computerConnection, bool arm) : base(material, model, color)
+        public Utility(string model, string material, string color, bool toolbox, bool computerConnection, bool arm) : base(model, material, color)
         {
             this.toolbox = toolbox;
             this.computerConnection = computerConnection;
@@ -21,10 +21,11 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return this.material + ", " + this.model + ", " + this.color + ", toolbox " + this.toolbox + ", computer connection " + this.computerConnection + ", arm " + this.arm;
+            return "Model: " + this.model + ", Material: " + this.material + ", Color: " + this.color + ", Toolbox: " + this.toolbox + 
+                ", Computer Connection: " + this.computerConnection + ", Arm: " + this.arm;
         }
 
-        protected void CalculateTotalCost()
+        public override void CalculateTotalCost()
         {
             // calculate totalCost by calculating the cost of each selected option and add it ot the base totalCost
         }

@@ -11,8 +11,8 @@ namespace cis237assignment3
         protected bool trashCompactor;
         protected bool vacuum;
 
-        public Janitor(string material, string model, string color, bool toolbox, bool computerConnection, bool arm, bool trashCompactor, bool vacuum) : 
-            base(material, model, color, toolbox, computerConnection, arm)
+        public Janitor(string model, string material, string color, bool toolbox, bool computerConnection, bool arm, bool trashCompactor, bool vacuum) : 
+            base(model, material, color, toolbox, computerConnection, arm)
         {
             this.trashCompactor = trashCompactor;
             this.vacuum = vacuum;
@@ -20,11 +20,11 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return this.material + ", " + this.model + ", " + this.color + ", toolbox " + this.toolbox + ", computer connection " +
-                this.computerConnection + ", arm " + this.arm + ", trash compactor " + this.trashCompactor + ", vacuum " + this.vacuum;
+            return "Model: " + this.model + ", Material: " + this.material + ", Color: " + this.color + ", Toolbox: " + this.toolbox + ", Computer Connection: " +
+                this.computerConnection + ", Arm: " + this.arm + ", Trash Compactor: " + this.trashCompactor + ", Vacuum: " + this.vacuum;
         }
 
-        protected void CalculateTotalCost()
+        public override void CalculateTotalCost()
         {
             // Calculate totalCost by calculating the cost of each selected option and adds it to the base totalCost
         }

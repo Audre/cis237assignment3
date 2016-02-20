@@ -11,19 +11,19 @@ namespace cis237assignment3
         protected int numberLanguages;
         protected const decimal COST_PER_LANGUAGE = 5;
 
-        public Protocol(string material, string model, string color, int numberLanguages) : base(material, model, color)
+        public Protocol(string model, string material, string color, int numberLanguages) : base(model, material, color)
         {
             this.numberLanguages = numberLanguages;
         }
 
         public override string ToString()
         {
-            return this.material + " " + this.model + " " + this.color + " " + this.numberLanguages + " " + COST_PER_LANGUAGE.ToString("C");
+            return "Model: " + this.model + ", " + " Material: " + this.material + ", " + "Color: " + this.color + ", " + "Number of Languages: " + this.numberLanguages;
         }
 
-        protected void CaclulateTotalCost()
+        public override void CalculateTotalCost()
         {
-            this.totalCost = this.numberLanguages * COST_PER_LANGUAGE;
+            //this.totalCost = this.numberLanguages * COST_PER_LANGUAGE;
         }
 
     }
