@@ -18,7 +18,7 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return "Model: " + this.model + ", " + " Material: " + this.material + ", " + "Color: " + this.color + ", " + "Number of Languages: " + this.numberLanguages;
+            return base.ToString() + ", " + "Number of Languages: " + this.numberLanguages;
         }
 
         public override void CalculateTotalCost()

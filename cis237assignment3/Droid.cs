@@ -29,7 +29,7 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return this.model + this.material + " " + " " + this.color + " " + this.baseCost.ToString("C") + " " + this.totalCost.ToString("C");
+            return "Model: " + this.model + ", Material: " + this.material + ", Color: " + this.color;
         }
 
         // determine base cost based on material

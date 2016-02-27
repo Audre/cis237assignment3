@@ -14,9 +14,34 @@ namespace cis237assignment3
 
             DroidCollection droidCollection = new DroidCollection(100);
 
-            ui.GetModel();
-            ui.GetRestOfDroid(droidCollection);
-            Console.WriteLine(droidCollection.ToString());
+            ui.PrintMenu();
+
+            int choice = ui.GetUserChoice();
+
+            while (choice != 3)
+            {
+                switch (choice)
+                {
+                    case 1:
+                        {
+                            ui.GetModel();
+                            ui.GetRestOfDroid(droidCollection);
+                            break;
+                        }
+
+                    case 2:
+                        {
+                            Console.WriteLine(droidCollection.ToString());
+                            break;
+                        }
+                }
+
+                ui.PrintMenu();
+                choice = ui.GetUserChoice();
+            }
+
+            
+            
         }
     }
 }

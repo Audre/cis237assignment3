@@ -21,8 +21,7 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return "Model: " + this.model + ", Material: " + this.material + ", Color: " + this.color + ", Toolbox: " + this.toolbox + 
-                ", Computer Connection: " + this.computerConnection + ", Arm: " + this.arm;
+            return base.ToString() + ", Toolbox: " + this.toolbox + ", Computer Connection: " + this.computerConnection + ", Arm: " + this.arm;
         }
 
         public override void CalculateTotalCost()

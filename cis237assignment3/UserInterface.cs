@@ -10,6 +10,7 @@ namespace cis237assignment3
     {
         private string model;
         private bool isYes;
+        private const int MENU_CHOICES = 3;
 
         public string Model
         {
@@ -181,6 +182,39 @@ namespace cis237assignment3
             userInput = Console.ReadLine();
             Int32.TryParse(userInput, out numberShips);
             return numberShips;
+        }
+
+        public void PrintMenu()
+        {
+            Console.WriteLine();
+            Console.WriteLine("What would like you like to do?");
+            Console.WriteLine("   1. Add New Droid.");
+            Console.WriteLine("   2. Print Droid List.");
+            Console.WriteLine("   3. Exit.");
+            Console.WriteLine();
+        }
+
+        public int GetUserChoice()
+        {
+            string userSelection;
+            int choice;
+            userSelection = Console.ReadLine();
+            Int32.TryParse(userSelection, out choice);
+
+            while (choice <= 0 || choice > MENU_CHOICES)
+            {
+                this.DisplayErrorMessage();
+                this.PrintMenu();
+                userSelection = Console.ReadLine();
+            }
+
+            return choice;
+        }
+
+        public void DisplayErrorMessage()
+        {
+            Console.WriteLine();
+            Console.WriteLine("This is not a valid choice.");
         }
 
     }

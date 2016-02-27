@@ -21,8 +21,7 @@ namespace cis237assignment3
 
         public override string ToString()
         {
-            return "Model: " + this.model + ", Material: " + this.material + ", Color: " + this.color + ", Toolbox: " + this.toolbox + ", Computer Connection: " +
-                this.computerConnection + ", Arm: " + this.arm + ", Fire Extinguisher: " + this.fireExtinguisher + ", Number of Ships: " + this.numberShips;
+            return base.ToString() + ", Fire Extinguisher: " + this.fireExtinguisher + ", Number of Ships: " + this.numberShips;
         }
 
         public override void CalculateTotalCost()
