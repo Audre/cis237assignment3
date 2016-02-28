@@ -54,8 +54,9 @@ namespace cis237assignment3
             {
                 if (droid != null)
                 {
+                    droid.CalculateTotalCost();
                     isEmpty = false;
-                    droidConcat += droid.ToString() + Environment.NewLine;
+                    droidConcat += droid.ToString() + ", Total Cost: " + droid.TotalCost + Environment.NewLine;
                 }
             }
 

@@ -31,6 +31,7 @@ namespace cis237assignment3
 
                     case 2:
                         {
+
                             Console.WriteLine(droidCollection.ToString());
                             break;
                         }

@@ -23,7 +23,14 @@ namespace cis237assignment3
 
         public override void CalculateTotalCost()
         {
-            //this.totalCost = this.numberLanguages * COST_PER_LANGUAGE;
+            base.CalculateBaseCost();
+            base.CalculateTotalCost();
+            base.totalCost = this.GetNumberLanguagesCost() + base.totalCost;
+        }
+
+        private decimal GetNumberLanguagesCost()
+        {
+            return COST_PER_LANGUAGE * this.numberLanguages;
         }
 
     }

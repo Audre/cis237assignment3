@@ -25,7 +25,35 @@ namespace cis237assignment3
 
         public override void CalculateTotalCost()
         {
-            // Calculate totalCost by calculating the cost of each selected option and adds it to the base totalCost
+            base.CalculateBaseCost();
+            base.CalculateTotalCost();
+            base.totalCost = this.GetTrashCompactorCost() + this.GetVacuumCost() + base.totalCost;
+        }
+
+        private decimal GetTrashCompactorCost()
+        {
+            if (this.trashCompactor)
+            {
+                return 2;
+            }
+
+            else
+            {
+                return 0;
+            }
+        }
+
+        private decimal GetVacuumCost()
+        {
+            if (this.vacuum)
+            {
+                return 2;
+            }
+
+            else
+            {
+                return 0;
+            }
         }
     }
 }

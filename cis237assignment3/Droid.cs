@@ -16,9 +16,9 @@ namespace cis237assignment3
 
         public Droid(string model, string material, string color)
         {
-            this.material = material;
-            this.model = model;
-            this.color = color;
+            this.model = model.ToLower();
+            this.material = material.ToLower();
+            this.color = color.ToLower();
         }
 
         public decimal TotalCost
@@ -29,19 +29,108 @@ namespace cis237assignment3
 
         public override string ToString()
         {
+            CalculateBaseCost();
+            CalculateTotalCost();
             return "Model: " + this.model + ", Material: " + this.material + ", Color: " + this.color;
         }
 
         // determine base cost based on material
-        protected decimal CalculateBaseCost()
+        protected void CalculateBaseCost()
         {
-            return baseCost;
+            CalculateModelCost();
+            this.baseCost = this.CalculateModelCost() + this.CalculateMaterialCost() + this.CalculateColorCost();
         }
         
         // assigns baseCost to totalCost
         public virtual void CalculateTotalCost()
         {
             this.totalCost = this.baseCost;
+        }
+
+        protected decimal CalculateModelCost()
+        {
+            switch (this.model)
+            {
+                case "protocol":
+                    {
+                        return 1;
+                    }
+
+                case "utility":
+                    {
+                        return 2;
+                    }
+
+                case "janitor":
+                    {
+                        return 3;
+                    }
+
+                case "astromech":
+                    {
+                        return 4;
+                    }
+
+                default:
+                    {
+                        return 0;
+                    }
+            }
+        }
+
+        private decimal CalculateMaterialCost()
+        {
+            switch (this.material)
+            {
+                case "wood":
+                    {
+                        return 1;
+                    }
+
+                case "cardboard":
+                    {
+                        return 2;
+                    }
+
+                case "metal":
+                    {
+                        return 3;
+                    }
+
+                default:
+                    {
+                        return 0;
+                    }
+            }
+        }
+
+        private decimal CalculateColorCost()
+        {
+            switch (this.color)
+            {
+                case "red":
+                    {
+                        return 1;
+                    }
+                case "blue":
+                    {
+                        return 2;
+                    }
+
+                case "white":
+                    {
+                        return 3;
+                    }
+
+                case "black":
+                    {
+                        return 4;
+                    }
+                default:
+                    {
+                        return 0;
+                    }
+            }
         }
     }
 }

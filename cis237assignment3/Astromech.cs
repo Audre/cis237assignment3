@@ -26,7 +26,27 @@ namespace cis237assignment3
 
         public override void CalculateTotalCost()
         {
-            // Calculate totalCost by calculating the cost of each selected option and the cost based on the number of ships and adds both to the base CalculateTotalCost
+            base.CalculateBaseCost();
+            base.CalculateTotalCost();
+            base.totalCost = this.GetFireExtinguisherCost() + this.GetNumberShipsCost() + base.totalCost;
+        }
+
+        private decimal GetFireExtinguisherCost()
+        {
+            if (this.fireExtinguisher)
+            {
+                return 2;
+            }
+
+            else
+            {
+                return 0;
+            }
+        }
+
+        private decimal GetNumberShipsCost()
+        {
+            return COST_PER_SHIP * this.numberShips;
         }
     }
 }

@@ -27,8 +27,13 @@ namespace cis237assignment3
         public void GetModel()
         {
             Console.WriteLine("Please enter the model of the droid (protocol, utility, janitor, or astromech).");
-            this.model = Console.ReadLine();
-            
+            this.model = Console.ReadLine().ToLower();
+            if (model != "protocol" && model != "utility" && model != "janitor" && model != "astromech")
+            {
+                Console.WriteLine("That is not a valid option.");
+                GetModel();
+            }
+
         }
 
         public void GetRestOfDroid(DroidCollection droidCollection)

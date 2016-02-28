@@ -26,7 +26,48 @@ namespace cis237assignment3
 
         public override void CalculateTotalCost()
         {
-            // calculate totalCost by calculating the cost of each selected option and add it ot the base totalCost
+            base.CalculateBaseCost();
+            base.CalculateTotalCost();
+            base.totalCost =  this.GetToolboxCost() + GetComputerConnectionCost() + GetArmCost()+ base.totalCost;
+        }
+
+        private decimal GetToolboxCost()
+        {
+            if (this.toolbox)
+            {
+                return 2;
+            }
+
+            else
+            {
+                return 0;
+            }
+        }
+
+        private decimal GetComputerConnectionCost()
+        {
+            if (this.computerConnection)
+            {
+                return 2;
+            }
+
+            else
+            {
+                return 0;
+            }
+        }
+
+        private decimal GetArmCost()
+        {
+            if (this.arm)
+            {
+                return 2;
+            }
+
+            else
+            {
+                return 0;
+            }
         }
     }
 }
