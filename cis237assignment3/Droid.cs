@@ -8,12 +8,14 @@ namespace cis237assignment3
 {
     abstract class Droid : IDroid
     {
+        // Backing field.
         protected string material;
         protected string model;
         protected string color;
         protected decimal baseCost;
         protected decimal totalCost;
 
+        // 3-parameter constructor.
         public Droid(string model, string material, string color)
         {
             this.model = model.ToLower();
@@ -21,32 +23,35 @@ namespace cis237assignment3
             this.color = color.ToLower();
         }
 
+        // Property.
         public decimal TotalCost
         {
             get { return totalCost; }
             set { totalCost = value; }
         }
 
+        // Overrides ToString() to display the droid base properties.
         public override string ToString()
         {
             CalculateBaseCost();
             CalculateTotalCost();
-            return "Model: " + this.model + ", Material: " + this.material + ", Color: " + this.color;
+            return "Model: " + this.model + Environment.NewLine + "Material: " + this.material + Environment.NewLine + "Color: " + this.color;
         }
 
-        // determine base cost based on material
+        // Calculates total cost of the base properties of a droid - the model, material, and color cost. 
         protected void CalculateBaseCost()
         {
             CalculateModelCost();
             this.baseCost = this.CalculateModelCost() + this.CalculateMaterialCost() + this.CalculateColorCost();
         }
         
-        // assigns baseCost to totalCost
+        // Assigns baseCost to totalCost.
         public virtual void CalculateTotalCost()
         {
             this.totalCost = this.baseCost;
         }
 
+        // Returns price for the model, depending on which model the user entered.
         protected decimal CalculateModelCost()
         {
             switch (this.model)
@@ -78,6 +83,7 @@ namespace cis237assignment3
             }
         }
 
+        // Returns price for the material, depending on which material the user entered.
         private decimal CalculateMaterialCost()
         {
             switch (this.material)
@@ -104,6 +110,7 @@ namespace cis237assignment3
             }
         }
 
+        // Returns price for the color, depending on which color the user entered.
         private decimal CalculateColorCost()
         {
             switch (this.color)
